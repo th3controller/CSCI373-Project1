@@ -2,22 +2,23 @@
     Project 1 - CSCI 373
     David Slaby and Michael Garcia
     Professor Ni Lu
-    Singly linked list
-    Merging two 
+    Merging and Sorting Two Sorted Singly Linked Lists
  */
+
 #include <iostream>
 using namespace std;
 
-/* Link list node */
+/* Defintion & Initialization of a Singly Linked List */
 class ListNode {
 public:
 	int val;
 	ListNode *next;
 };
 
+/* Sorting and Merging Function */
 ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
-	ListNode fake;						// Create a dummy node
-	ListNode *last = &fake;				// Last points to the last result node
+	ListNode fake;
+	ListNode *last = &fake;
 	while (l1 != NULL && l2 != NULL) {
 		if (l1->val < l2->val) {
 			last->next = l1;
@@ -38,20 +39,22 @@ ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
 	return fake.next;
 }
 
+/* Push Function */
 void push(ListNode **head_ref, int new_data) {
-	/* allocate node */
+	/* Allocate node */
 	ListNode *new_node = new ListNode();
 
-	/* put in the data */
+	/* Put in the data */
 	new_node->val = new_data;
 
-	/* link the old list off the new node */
+	/* Link the old list off the new node */
 	new_node->next = (*head_ref);
 
-	/* move the head to point to the new node */
+	/* Move the head to point to the new node */
 	(*head_ref) = new_node;
 }
 
+/* Print Function */
 void printList(ListNode *node) {
 	while (node != NULL) {
 		cout << node->val << " ";
@@ -74,7 +77,17 @@ int main() {
 
 	result = mergeTwoLists(l1, l2);
 
-	cout << "Merged Linked List is: \n";
+	cout << "List 1: ";
+	printList(l1);
+
+	cout << endl;
+
+	cout << "List 2: ";
+	printList(l2);
+
+	cout << endl;
+
+	cout << "Merged Linked List: ";
 	printList(result);
 
 	return 0;
