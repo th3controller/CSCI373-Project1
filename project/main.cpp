@@ -2,10 +2,11 @@
     Project 1 - CSCI 373
     David Slaby and Michael Garcia
     Professor Ni Lu
+    Singly linked list
+    Merging two 
  */
 #include <iostream>
-/* C++ program to merge two sorted linked lists */
-#include <bits/stdc++.h>
+#include <assert.h>
 using namespace std;
 
 /* Link list node */
@@ -110,14 +111,13 @@ void push(Node** head_ref, int new_data)
 /* Function to print nodes in a given linked list */
 void printList(Node *node)
 {
-	while (node!=NULL)
-	{
-		cout<<node->data<<" ";
-		node = node->next;
-	}
+    while (node != NULL)
+    {
+        cout << node->data << " ";
+        node = node->next;
+    }
 }
 
-/* Driver code*/
 int main()
 {
 	/* Start with the empty list */
